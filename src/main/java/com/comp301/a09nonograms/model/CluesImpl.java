@@ -23,11 +23,11 @@ public class CluesImpl implements Clues{
     }
 
     public int[] getRowClues(int index) {
-        return new int[0];
+        return rowClues[index];
     }
 
     public int[] getColClues(int index) {
-        return new int[0];
+        return colClues[index];
     }
 
     public int getRowCluesLength() {
