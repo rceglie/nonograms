@@ -45,7 +45,7 @@ public class ModelImpl implements Model{
 
         boolean solved = true;
 
-        System.out.println("row check:");
+        //System.out.println("row check:");
 
         for (int r = 0; r < clues.getHeight(); r++) {
             solved = (Arrays.equals(getClueR(r), clues.getRowClues(r))) & solved;
@@ -55,7 +55,7 @@ public class ModelImpl implements Model{
             //System.out.print(", Result: " + solved + "\n");
         }
 
-        System.out.println("col check:");
+        //System.out.println("col check:");
 
         for (int c = 0; c < clues.getWidth(); c++) {
             solved = (Arrays.equals(getClueC(c), clues.getColClues(c))) & solved;
