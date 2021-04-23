@@ -11,7 +11,7 @@ public class BoardImpl implements Board{
         this.height = height;
         board = new int[height][width];
         for (int r = 0; r < height; r++){
-            for (int c = 0; c < height; c++){
+            for (int c = 0; c < width; c++){
                 board[r][c] = 1;
             }
         }
