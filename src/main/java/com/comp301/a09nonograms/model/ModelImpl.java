@@ -28,10 +28,12 @@ public class ModelImpl implements Model{
     }
 
     public void setPuzzleIndex(int index) {
+        System.out.print("Input:" + index);
         activePuzzle = index;
         this.clues = puzzles.get(activePuzzle);
         board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
         note();
+        System.out.println(", ActivePuzzle:" + activePuzzle);
     }
 
     public void addObserver(ModelObserver observer) {
@@ -147,7 +149,7 @@ public class ModelImpl implements Model{
     // Board
 
     public boolean isShaded(int row, int col) {
-        if (row > getWidth() || row < 0 || col < 0 || col > getHeight()){
+        if (row >= getWidth() || row < 0 || col < 0 || col >= getHeight()){
             throw new RuntimeException();
         }
         return board.isShaded(row, col);
