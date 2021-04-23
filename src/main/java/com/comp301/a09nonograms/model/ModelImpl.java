@@ -12,7 +12,7 @@ public class ModelImpl implements Model{
     private List<ModelObserver> observers;
 
     public ModelImpl(List<Clues> clues){
-        puzzles = clues;
+        puzzles = new ArrayList<>(clues);
         this.clues = puzzles.get(activePuzzle);
         board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
         observers = new ArrayList<>();
