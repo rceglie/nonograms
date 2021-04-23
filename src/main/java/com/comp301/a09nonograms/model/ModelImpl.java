@@ -149,7 +149,7 @@ public class ModelImpl implements Model{
         if (row > getWidth() || row < 0 || col < 0 || col > getHeight()){
             throw new ArrayIndexOutOfBoundsException();
         }
-        return board.isShaded(col, row);
+        return board.isShaded(row, col);
     }
 
     public boolean isEliminated(int row, int col) {
@@ -161,6 +161,8 @@ public class ModelImpl implements Model{
     }
 
     public void toggleCellShaded(int row, int col) {
+        System.out.println("Width:" + getWidth() + ", Col: " + col);
+        System.out.println("Height:" + getHeight() + ", Row: " + row);
         board.toggleCellShaded(row,col);
         note();
     }
