@@ -15,7 +15,6 @@ public class ModelImpl implements Model{
         puzzles = clues;
         this.clues = puzzles.get(activePuzzle);
         board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
-        puzzles = new ArrayList<>(PuzzleLibrary.create());
         observers = new ArrayList<>();
     }
 
