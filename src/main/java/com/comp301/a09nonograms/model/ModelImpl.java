@@ -158,8 +158,6 @@ public class ModelImpl implements Model{
     }
 
     public void toggleCellShaded(int row, int col) {
-        System.out.println("Width:" + getWidth() + ", Col: " + col);
-        System.out.println("Height:" + getHeight() + ", Row: " + row);
         board.toggleCellShaded(row,col);
         note();
     }
