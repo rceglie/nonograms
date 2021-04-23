@@ -39,7 +39,7 @@ public class Main {
 
     print(model);
 
-    // Application.launch(AppLauncher.class);
+    Application.launch(AppLauncher.class);
   }
 
   public static void print(Model model) {

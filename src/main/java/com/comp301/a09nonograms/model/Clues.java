@@ -18,4 +18,8 @@ public interface Clues {
 
   /** Getter method to retrieve the length of the column clue lists */
   int getColCluesLength();
+
+  default Clues getClues() {
+    return this;
+  }
 }

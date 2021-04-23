@@ -9,7 +9,7 @@ public class ModelImpl implements Model {
   private Board board;
   private Clues clues;
   private List<Clues> puzzles;
-  private int activePuzzle = 0;
+  private int activePuzzle = 1;
   private List<ModelObserver> observers;
 
   public ModelImpl(List<Clues> clues) {
@@ -17,6 +17,10 @@ public class ModelImpl implements Model {
     this.clues = puzzles.get(activePuzzle);
     board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
     observers = new ArrayList<>();
+  }
+
+  public Clues getClues() {
+    return clues;
   }
 
   public int getPuzzleCount() {
@@ -29,7 +33,7 @@ public class ModelImpl implements Model {
 
   public void setPuzzleIndex(int index) {
     activePuzzle = index;
-    this.clues = puzzles.get(activePuzzle);
+    clues = puzzles.get(activePuzzle);
     board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
     note();
   }
@@ -85,6 +89,9 @@ public class ModelImpl implements Model {
       if (b) {
         if (!lastCell) {
           groups++;
+          if (groups > ret.length) {
+            return null;
+          }
         }
         ret[groups - 1]++;
       }
@@ -131,6 +138,9 @@ public class ModelImpl implements Model {
       if (b) {
         if (!lastCell) {
           groups++;
+          if (groups > ret.length) {
+            return null;
+          }
         }
         ret[groups - 1]++;
       }
