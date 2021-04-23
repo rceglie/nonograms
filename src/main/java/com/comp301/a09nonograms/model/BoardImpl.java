@@ -18,7 +18,7 @@ public class BoardImpl implements Board{
     }
 
     public boolean isShaded(int row, int col) {
-        return board[col][row] == 2;
+        return board[row][col] == 2;
     }
 
     public boolean isEliminated(int row, int col) {
