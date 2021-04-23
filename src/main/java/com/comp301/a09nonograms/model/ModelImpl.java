@@ -146,7 +146,7 @@ public class ModelImpl implements Model{
     // Board
 
     public boolean isShaded(int row, int col) {
-        if (row >= getWidth() || row < 0 || col < 0 || col >= getHeight()){
+        if (row > getWidth() || row < 0 || col < 0 || col > getHeight()){
             throw new ArrayIndexOutOfBoundsException();
         }
         return board.isShaded(row, col);
