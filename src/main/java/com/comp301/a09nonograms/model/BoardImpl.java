@@ -40,7 +40,7 @@ public class BoardImpl implements Board{
     public void clear() {
         for (int i = 0; i < width; i++){
             for (int j = 0; j < height; j++){
-                board[i][j] = 1;
+                board[j][i] = 1;
             }
         }
     }
