@@ -4,6 +4,8 @@ import com.comp301.a09nonograms.model.*;
 import com.comp301.a09nonograms.view.AppLauncher;
 import javafx.application.Application;
 
+import java.util.Arrays;
+
 public class Main {
   public static void main(String[] args) {
 
@@ -25,7 +27,7 @@ public class Main {
                     new int[] {3, 1},
             };
 
-    Clues clues = new CluesImpl(rowClues, colClues);
+    System.out.println(colClues.length);
 
     Model model = new ModelImpl(PuzzleLibrary.create());
 

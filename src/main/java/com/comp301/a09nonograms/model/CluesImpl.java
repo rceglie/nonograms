@@ -31,10 +31,10 @@ public class CluesImpl implements Clues{
     }
 
     public int getRowCluesLength() {
-        return rowClues[0].length;
+        return rowClues.length;
     }
 
     public int getColCluesLength() {
-        return colClues[0].length;
+        return colClues.length;
     }
 }
