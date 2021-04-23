@@ -8,7 +8,7 @@ public class ModelImpl implements Model{
     private Board board;
     private Clues clues;
     private List<Clues> puzzles;
-    private int activePuzzle = 0;
+    private int activePuzzle = 1;
     private List<ModelObserver> observers;
 
     public ModelImpl(List<Clues> clues){
@@ -55,7 +55,7 @@ public class ModelImpl implements Model{
             System.out.print(", Result: " + solved + "\n");
         }
 
-        //System.out.println("col check:");
+        System.out.println("col check:");
 
         for (int c = 0; c < clues.getWidth(); c++) {
             solved = (Arrays.equals(getClueC(c), clues.getColClues(c))) & solved;
@@ -69,7 +69,8 @@ public class ModelImpl implements Model{
     }
 
     public int[] getClueR(int x){
-        int[] ret = new int[] {0,0};
+        int[] ret = new int[clues.getRowCluesLength()];
+        Arrays.fill(ret, 0);
         boolean[] line = new boolean[clues.getWidth()];
         for(int c = 0; c < clues.getWidth(); c++){
             line[c] = board.isShaded(x, c);
@@ -77,32 +78,39 @@ public class ModelImpl implements Model{
 
         int groups = 0;
         boolean lastCell = false;
-        for(int i = 0; i < line.length; i++){
-            if (line[i]){
-                if(groups == 0){
-                    ret[0]++;
-                } else if (groups == 1){
-                    ret[1]++;
+        for (boolean b : line) {
+            if (b) {
+                if (!lastCell) {
+                    groups++;
                 }
+                ret[groups-1]++;
             }
-            if ((!line[i] && lastCell) || line[i] && i +1 == line.length){
-                groups++;
-            }
-            lastCell = line[i];
+            lastCell = b;
             //System.out.println(i + ": " + line[i] + ", ret 0: " + ret[0] + ", ret 1: " + ret[1]);
         }
 
-        if (groups == 1) {
-            int temp = ret[0];
-            ret[0] = ret[1];
-            ret[1] = temp;
+        int L = ret.length;
+        int[] toReturn = new int[L];
+        if (groups == L) {
+            for (int i = 0; i < L; i++) {
+                toReturn[L - i - 1] = ret[i];
+            }
+            return toReturn;
+        } else {
+            while (ret[L-1] == 0){
+                for (int i = L-1; i > 0; i--){
+                    ret[i] = ret[i-1];
+                    ret[i-1] = 0;
+                }
+            }
+            return ret;
         }
-        //System.out.println("Groups:" + groups);
-        return ret;
+
     }
 
     public int[] getClueC(int x){
-        int[] ret = new int[] {0,0};
+        int[] ret = new int[clues.getColCluesLength()];
+        Arrays.fill(ret, 0);
         boolean[] line = new boolean[clues.getHeight()];
         for(int r = 0; r < clues.getHeight(); r++){
             line[r] = board.isShaded(r, x);
@@ -110,28 +118,33 @@ public class ModelImpl implements Model{
 
         int groups = 0;
         boolean lastCell = false;
-        for(int i = 0; i < line.length; i++){
-            if (line[i]){
-                if(groups == 0){
-                    ret[0]++;
-                } else if (groups == 1){
-                    ret[1]++;
+        for (boolean b : line) {
+            if (b) {
+                if (!lastCell) {
+                    groups++;
                 }
+                ret[groups-1]++;
             }
-            if ((!line[i] && lastCell) || line[i] && i +1 == line.length){
-                groups++;
-            }
-            lastCell = line[i];
+            lastCell = b;
             //System.out.println(i + ": " + line[i] + ", ret 0: " + ret[0] + ", ret 1: " + ret[1]);
         }
 
-        if (groups == 1) {
-            int temp = ret[0];
-            ret[0] = ret[1];
-            ret[1] = temp;
+        int L = ret.length;
+        int[] toReturn = new int[L];
+        if (groups == L) {
+            for (int i = 0; i < L; i++) {
+                toReturn[L - i - 1] = ret[i];
+            }
+            return toReturn;
+        } else {
+            while (ret[L-1] == 0){
+                for (int i = L-1; i > 0; i--){
+                    ret[i] = ret[i-1];
+                    ret[i-1] = 0;
+                }
+            }
+            return ret;
         }
-        //System.out.println("Groups:" + groups);
-        return ret;
     }
 
     private void note(){
