@@ -1,13 +1,13 @@
 package com.comp301.a09nonograms.model;
 
-public class CluesImpl implements Clues{
+public class CluesImpl implements Clues {
 
     private int width;
     private int height;
     private int[][] rowClues;
     private int[][] colClues;
 
-    public CluesImpl(int[][] rowClues, int[][] colClues){
+    public CluesImpl(int[][] rowClues, int[][] colClues) {
         height = rowClues.length;
         width = colClues.length;
         this.rowClues = rowClues;

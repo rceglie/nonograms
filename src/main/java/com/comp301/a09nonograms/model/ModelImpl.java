@@ -1,9 +1,10 @@
 package com.comp301.a09nonograms.model;
+
 import com.comp301.a09nonograms.PuzzleLibrary;
 
 import java.util.*;
 
-public class ModelImpl implements Model{
+public class ModelImpl implements Model {
 
     private Board board;
     private Clues clues;
@@ -11,7 +12,7 @@ public class ModelImpl implements Model{
     private int activePuzzle = 0;
     private List<ModelObserver> observers;
 
-    public ModelImpl(List<Clues> clues){
+    public ModelImpl(List<Clues> clues) {
         puzzles = new ArrayList<>(clues);
         this.clues = puzzles.get(activePuzzle);
         board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
@@ -70,11 +71,11 @@ public class ModelImpl implements Model{
         return solved;
     }
 
-    public int[] getClueR(int x){
+    public int[] getClueR(int x) {
         int[] ret = new int[clues.getRowCluesLength()];
         Arrays.fill(ret, 0);
         boolean[] line = new boolean[clues.getWidth()];
-        for(int c = 0; c < clues.getWidth(); c++){
+        for (int c = 0; c < clues.getWidth(); c++) {
             line[c] = board.isShaded(x, c);
         }
 
@@ -85,7 +86,7 @@ public class ModelImpl implements Model{
                 if (!lastCell) {
                     groups++;
                 }
-                ret[groups-1]++;
+                ret[groups - 1]++;
             }
             lastCell = b;
             //System.out.println(i + ": " + line[i] + ", ret 0: " + ret[0] + ", ret 1: " + ret[1]);
@@ -106,10 +107,10 @@ public class ModelImpl implements Model{
                     break;
                 }
             }
-            while (ret[L-1] == 0 && !allZero){
-                for (int i = L-1; i > 0; i--){
-                    ret[i] = ret[i-1];
-                    ret[i-1] = 0;
+            while (ret[L - 1] == 0 && !allZero) {
+                for (int i = L - 1; i > 0; i--) {
+                    ret[i] = ret[i - 1];
+                    ret[i - 1] = 0;
                 }
             }
             return ret;
@@ -117,11 +118,11 @@ public class ModelImpl implements Model{
 
     }
 
-    public int[] getClueC(int x){
+    public int[] getClueC(int x) {
         int[] ret = new int[clues.getColCluesLength()];
         Arrays.fill(ret, 0);
         boolean[] line = new boolean[clues.getHeight()];
-        for(int r = 0; r < clues.getHeight(); r++){
+        for (int r = 0; r < clues.getHeight(); r++) {
             line[r] = board.isShaded(r, x);
         }
 
@@ -132,7 +133,7 @@ public class ModelImpl implements Model{
                 if (!lastCell) {
                     groups++;
                 }
-                ret[groups-1]++;
+                ret[groups - 1]++;
             }
             lastCell = b;
             //System.out.println(i + ": " + line[i] + ", ret 0: " + ret[0] + ", ret 1: " + ret[1]);
@@ -153,18 +154,18 @@ public class ModelImpl implements Model{
                     break;
                 }
             }
-            while (ret[L-1] == 0 && !allZero){
-                for (int i = L-1; i > 0; i--){
-                    ret[i] = ret[i-1];
-                    ret[i-1] = 0;
+            while (ret[L - 1] == 0 && !allZero) {
+                for (int i = L - 1; i > 0; i--) {
+                    ret[i] = ret[i - 1];
+                    ret[i - 1] = 0;
                 }
             }
             return ret;
         }
     }
 
-    private void note(){
-        for (ModelObserver o: observers){
+    private void note() {
+        for (ModelObserver o : observers) {
             o.update(this);
         }
     }
@@ -181,16 +182,16 @@ public class ModelImpl implements Model{
     }
 
     public boolean isSpace(int row, int col) {
-        return board.isSpace(row,col);
+        return board.isSpace(row, col);
     }
 
     public void toggleCellShaded(int row, int col) {
-        board.toggleCellShaded(row,col);
+        board.toggleCellShaded(row, col);
         note();
     }
 
     public void toggleCellEliminated(int row, int col) {
-        board.toggleCellEliminated(row,col);
+        board.toggleCellEliminated(row, col);
         note();
     }
 
