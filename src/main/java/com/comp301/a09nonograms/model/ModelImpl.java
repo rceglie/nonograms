@@ -47,11 +47,11 @@ public class ModelImpl implements Model{
 
         System.out.println("horz check:");
 
-        for (int i = 0; i < clues.getWidth(); i++) {
-            solved = (Arrays.equals(getClueW(i), clues.getColClues(i))) & solved;
+        for (int r = 0; r < clues.getHeight(); r++) {
+            solved = (Arrays.equals(getClueW(r), clues.getColClues(r))) & solved;
 
-            System.out.print(i + ": Actual: " + Arrays.toString(getClueW(i)));
-            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(i)));
+            System.out.print(r + ": Actual: " + Arrays.toString(getClueW(r)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(r)));
             System.out.print(", Result: " + solved + "\n");
         }
 
@@ -59,7 +59,7 @@ public class ModelImpl implements Model{
 
         //solved = true;
 
-        for (int i = 0; i < clues.getHeight(); i++) {
+        for (int i = 0; i < clues.getWidth(); i++) {
             solved = (Arrays.equals(getClueH(i), clues.getRowClues(i))) & solved;
 
             System.out.print(i + ": Actual: " + Arrays.toString(getClueH(i)));
