@@ -8,7 +8,7 @@ public class ModelImpl implements Model{
     private Board board;
     private Clues clues;
     private List<Clues> puzzles;
-    private int activePuzzle = 1;
+    private int activePuzzle = 0;
     private List<ModelObserver> observers;
 
     public ModelImpl(List<Clues> clues){
