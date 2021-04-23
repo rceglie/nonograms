@@ -31,6 +31,7 @@ public class CluesImpl implements Clues{
     }
 
     public int getRowCluesLength() {
+
         return rowClues[0].length;
     }
 
