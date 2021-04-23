@@ -39,12 +39,12 @@ public class BoardImpl implements Board{
     }
 
     public void toggleCellShaded(int row, int col) {
-        System.out.println("Shading: [" + row + ", " + col + "]");
+        //System.out.println("Shading: [" + row + ", " + col + "]");
         board[row][col] = 2;
     }
 
     public void toggleCellEliminated(int row, int col) {
-        System.out.println("Eliminating: [" + row + ", " + col + "]");
+        //System.out.println("Eliminating: [" + row + ", " + col + "]");
         board[row][col] = 0;
     }
 

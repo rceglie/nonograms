@@ -45,36 +45,34 @@ public class ModelImpl implements Model{
 
         boolean solved = true;
 
-        System.out.println("horz check:");
+        System.out.println("row check:");
 
         for (int r = 0; r < clues.getHeight(); r++) {
-            solved = (Arrays.equals(getClueW(r), clues.getColClues(r))) & solved;
+            solved = (Arrays.equals(getClueR(r), clues.getRowClues(r))) & solved;
 
-            System.out.print(r + ": Actual: " + Arrays.toString(getClueW(r)));
-            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(r)));
+            System.out.print(r + ": Actual: " + Arrays.toString(getClueR(r)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(r)));
             System.out.print(", Result: " + solved + "\n");
         }
 
-        System.out.println("vert check:");
+        System.out.println("col check:");
 
-        //solved = true;
+        for (int c = 0; c < clues.getWidth(); c++) {
+            solved = (Arrays.equals(getClueC(c), clues.getColClues(c))) & solved;
 
-        for (int i = 0; i < clues.getWidth(); i++) {
-            solved = (Arrays.equals(getClueH(i), clues.getRowClues(i))) & solved;
-
-            System.out.print(i + ": Actual: " + Arrays.toString(getClueH(i)));
-            System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(i)));
+            System.out.print(c + ": Actual: " + Arrays.toString(getClueC(c)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(c)));
             System.out.print(", Result: " + solved + "\n");
         }
 
         return solved;
     }
 
-    public int[] getClueW(int x){
+    public int[] getClueR(int x){
         int[] ret = new int[] {0,0};
-        boolean[] line = new boolean[clues.getHeight()];
-        for(int i = 0; i < clues.getHeight(); i++){
-            line[i] = board.isShaded(x,i);
+        boolean[] line = new boolean[clues.getWidth()];
+        for(int c = 0; c < clues.getWidth(); c++){
+            line[c] = board.isShaded(x, c);
         }
 
         int groups = 0;
@@ -103,11 +101,11 @@ public class ModelImpl implements Model{
         return ret;
     }
 
-    public int[] getClueH(int x){
+    public int[] getClueC(int x){
         int[] ret = new int[] {0,0};
-        boolean[] line = new boolean[clues.getWidth()];
-        for(int i = 0; i < clues.getWidth(); i++){
-            line[i] = board.isShaded(i,x);
+        boolean[] line = new boolean[clues.getHeight()];
+        for(int r = 0; r < clues.getHeight(); r++){
+            line[r] = board.isShaded(r, x);
         }
 
         int groups = 0;

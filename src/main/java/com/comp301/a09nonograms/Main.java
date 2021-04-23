@@ -30,26 +30,12 @@ public class Main {
     List<Clues> tester = new ArrayList<>();
     tester.add(new CluesImpl(rowClues, colClues));
 
-    Model model = new ModelImpl(tester);
-    Model model2 = new ModelImpl(PuzzleLibrary.create());
+    Model model2 = new ModelImpl(tester);
+    Model model = new ModelImpl(PuzzleLibrary.create());
 
+    fill(model);
 
-    model.toggleCellShaded(0,4);
-    model.toggleCellShaded(0,3);
-    model.toggleCellShaded(1,0);
-    model.toggleCellShaded(1,3);
-    model.toggleCellShaded(1,4);
-    model.toggleCellShaded(2,2);
-    model.toggleCellShaded(2,3);
-    model.toggleCellShaded(2,4);
-    model.toggleCellShaded(3,0);
-    model.toggleCellShaded(3,1);
-    model.toggleCellShaded(3,2);
-    model.toggleCellShaded(4,2);
-    model.toggleCellShaded(4,4);
-
-
-    //System.out.println("Solved?: " + model.isSolved());
+    System.out.println("Solved?: " + model.isSolved());
 
     print(model);
 
@@ -69,6 +55,51 @@ public class Main {
       }
       System.out.print("\n");
     }
+  }
+
+  public static void fill(Model model){
+    model.toggleCellShaded(1,1);
+    model.toggleCellShaded(1,2);
+    model.toggleCellShaded(1,3);
+    model.toggleCellShaded(1,4);
+
+    model.toggleCellShaded(2,1);
+    model.toggleCellShaded(2,2);
+    model.toggleCellShaded(2,3);
+    model.toggleCellShaded(2,4);
+    model.toggleCellShaded(2,5);
+    model.toggleCellShaded(2,6);
+
+    model.toggleCellShaded(3,1);
+    model.toggleCellShaded(3,2);
+    model.toggleCellShaded(3,5);
+    model.toggleCellShaded(3,6);
+
+    model.toggleCellShaded(4,1);
+    model.toggleCellShaded(4,2);
+    model.toggleCellShaded(4,5);
+    model.toggleCellShaded(4,6);
+
+    model.toggleCellShaded(5,1);
+    model.toggleCellShaded(5,2);
+    model.toggleCellShaded(5,3);
+    model.toggleCellShaded(5,4);
+    model.toggleCellShaded(5,5);
+    model.toggleCellShaded(5,6);
+
+    model.toggleCellShaded(6,1);
+    model.toggleCellShaded(6,2);
+    model.toggleCellShaded(6,3);
+    model.toggleCellShaded(6,4);
+
+    model.toggleCellShaded(7,1);
+    model.toggleCellShaded(7,2);
+
+    model.toggleCellShaded(8,1);
+    model.toggleCellShaded(8,2);
+
+    model.toggleCellShaded(9,1);
+    model.toggleCellShaded(9,2);
   }
 
 }
