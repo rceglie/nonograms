@@ -4,7 +4,7 @@ import com.comp301.a09nonograms.model.*;
 import com.comp301.a09nonograms.view.AppLauncher;
 import javafx.application.Application;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -27,25 +27,28 @@ public class Main {
                     new int[] {3, 1},
             };
 
-    System.out.println(colClues.length);
+    List<Clues> tester = new ArrayList<>();
+    tester.add(new CluesImpl(rowClues, colClues));
 
-    Model model = new ModelImpl(PuzzleLibrary.create());
+    Model model = new ModelImpl(tester);
 
-    //model.toggleCellShaded(0,4);
-    //model.toggleCellShaded(0,3);
-    //model.toggleCellShaded(1,0);
+    /*
+    model.toggleCellShaded(0,4);
+    model.toggleCellShaded(0,3);
+    model.toggleCellShaded(1,0);
     model.toggleCellShaded(1,3);
     model.toggleCellShaded(1,4);
     model.toggleCellShaded(2,2);
     model.toggleCellShaded(2,3);
     model.toggleCellShaded(2,4);
-    //model.toggleCellShaded(3,0);
+    model.toggleCellShaded(3,0);
     model.toggleCellShaded(3,1);
     model.toggleCellShaded(3,2);
     model.toggleCellShaded(4,2);
     model.toggleCellShaded(4,4);
+    */
 
-    System.out.println("Solved?: " + model.isSolved());
+    //System.out.println("Solved?: " + model.isSolved());
 
 
     for (int i = 0; i < model.getWidth(); i++){
