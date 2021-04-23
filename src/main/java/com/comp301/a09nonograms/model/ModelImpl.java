@@ -137,7 +137,13 @@ public class ModelImpl implements Model{
             }
             return toReturn;
         } else {
-            while (ret[L-1] == 0){
+            boolean allZero = true;
+            for (int i = 0; i < L; i++){
+                if (ret[i] != 0){
+                    allZero = false;
+                }
+            }
+            while (ret[L-1] == 0 && !allZero){
                 for (int i = L-1; i > 0; i--){
                     ret[i] = ret[i-1];
                     ret[i-1] = 0;
