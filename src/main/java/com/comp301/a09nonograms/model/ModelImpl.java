@@ -65,6 +65,8 @@ public class ModelImpl implements Model{
             System.out.print(", Result: " + solved + "\n");
         }
 
+        System.out.println("FINAL RESULT: " + solved);
+
         return solved;
     }
 
