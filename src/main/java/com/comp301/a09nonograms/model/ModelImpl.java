@@ -11,9 +11,10 @@ public class ModelImpl implements Model{
     private int activePuzzle = 0;
     private List<ModelObserver> observers;
 
-    public ModelImpl(Clues clues, Board board){
-        this.clues = clues;
-        this.board = board;
+    public ModelImpl(List<Clues> clues){
+        puzzles = clues;
+        this.clues = puzzles.get(activePuzzle);
+        board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
         puzzles = new ArrayList<>(PuzzleLibrary.create());
         observers = new ArrayList<>();
     }
@@ -28,6 +29,8 @@ public class ModelImpl implements Model{
 
     public void setPuzzleIndex(int index) {
         activePuzzle = index;
+        this.clues = puzzles.get(activePuzzle);
+        board = new BoardImpl(this.clues.getWidth(), this.clues.getHeight());
         note();
     }
 
@@ -43,22 +46,25 @@ public class ModelImpl implements Model{
 
         boolean solved = true;
 
+        System.out.println("horz check:");
 
         for (int i = 0; i < clues.getWidth(); i++) {
-            solved = (Arrays.equals(getClueW(i), clues.getRowClues(i))) & solved;
+            solved = (Arrays.equals(getClueW(i), clues.getColClues(i))) & solved;
 
             System.out.print(i + ": Actual: " + Arrays.toString(getClueW(i)));
-            System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(i)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(i)));
             System.out.print(", Result: " + solved + "\n");
         }
 
-        System.out.println("vertical check:");
+        System.out.println("vert check:");
+
+        //solved = true;
 
         for (int i = 0; i < clues.getHeight(); i++) {
-            solved = (Arrays.equals(getClueH(i), clues.getColClues(i))) & solved;
+            solved = (Arrays.equals(getClueH(i), clues.getRowClues(i))) & solved;
 
             System.out.print(i + ": Actual: " + Arrays.toString(getClueH(i)));
-            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(i)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(i)));
             System.out.print(", Result: " + solved + "\n");
         }
 
@@ -67,8 +73,8 @@ public class ModelImpl implements Model{
 
     public int[] getClueW(int x){
         int[] ret = new int[] {0,0};
-        boolean[] line = new boolean[clues.getWidth()];
-        for(int i = 0; i < clues.getWidth(); i++){
+        boolean[] line = new boolean[clues.getHeight()];
+        for(int i = 0; i < clues.getHeight(); i++){
             line[i] = board.isShaded(x,i);
         }
 
@@ -100,8 +106,8 @@ public class ModelImpl implements Model{
 
     public int[] getClueH(int x){
         int[] ret = new int[] {0,0};
-        boolean[] line = new boolean[clues.getHeight()];
-        for(int i = 0; i < clues.getHeight(); i++){
+        boolean[] line = new boolean[clues.getWidth()];
+        for(int i = 0; i < clues.getWidth(); i++){
             line[i] = board.isShaded(i,x);
         }
 

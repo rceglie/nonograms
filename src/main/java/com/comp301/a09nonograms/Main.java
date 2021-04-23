@@ -26,33 +26,33 @@ public class Main {
             };
 
     Clues clues = new CluesImpl(rowClues, colClues);
-    Board board = new BoardImpl(clues.getWidth(),clues.getHeight());
-    Model model = new ModelImpl(clues, board);
 
-    board.toggleCellShaded(0,4);
-    board.toggleCellShaded(0,3);
-    board.toggleCellShaded(1,0);
-    board.toggleCellShaded(1,3);
-    board.toggleCellShaded(1,4);
-    board.toggleCellShaded(2,2);
-    board.toggleCellShaded(2,3);
-    board.toggleCellShaded(2,4);
-    board.toggleCellShaded(3,0);
-    board.toggleCellShaded(3,1);
-    board.toggleCellShaded(3,2);
-    board.toggleCellShaded(4,2);
-    board.toggleCellShaded(4,4);
+    Model model = new ModelImpl(PuzzleLibrary.create());
+
+    //model.toggleCellShaded(0,4);
+    //model.toggleCellShaded(0,3);
+    //model.toggleCellShaded(1,0);
+    model.toggleCellShaded(1,3);
+    model.toggleCellShaded(1,4);
+    model.toggleCellShaded(2,2);
+    model.toggleCellShaded(2,3);
+    model.toggleCellShaded(2,4);
+    //model.toggleCellShaded(3,0);
+    model.toggleCellShaded(3,1);
+    model.toggleCellShaded(3,2);
+    model.toggleCellShaded(4,2);
+    model.toggleCellShaded(4,4);
 
     System.out.println("Solved?: " + model.isSolved());
 
 
-    for (int i = 0; i < 5; i++){
-      for (int j = 0; j < 5; j++){
-        if (board.isShaded(i,j)){
+    for (int i = 0; i < model.getWidth(); i++){
+      for (int j = 0; j < model.getHeight(); j++){
+        if (model.isShaded(i,j)){
           System.out.print("X");
-        } else if (board.isEliminated(i,j)){
+        } else if (model.isEliminated(i,j)){
           System.out.print("*");
-        } else if (board.isSpace(i,j)){
+        } else if (model.isSpace(i,j)){
           System.out.print("-");
         }
       }
