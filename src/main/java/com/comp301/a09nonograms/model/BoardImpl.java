@@ -18,12 +18,11 @@ public class BoardImpl implements Board{
     }
 
     public boolean isShaded(int row, int col) {
-        System.out.println("Col: " + col + ", Row: " + row + ", " + board[row][col]);
-        System.out.println("Height:" + height + ", Row: " + row);
+        System.out.println("Row: " + row + ", Col: " + col + ", " + board[row][col]);
         if (row >= height || row < 0 || col < 0 || col >= width){
             throw new RuntimeException();
         }
-        return board[col][row] == 2;
+        return board[row][col] == 2;
     }
 
     public boolean isEliminated(int row, int col) {
