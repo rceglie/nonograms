@@ -31,8 +31,9 @@ public class Main {
     tester.add(new CluesImpl(rowClues, colClues));
 
     Model model = new ModelImpl(tester);
+    Model model2 = new ModelImpl(PuzzleLibrary.create());
 
-    /*
+
     model.toggleCellShaded(0,4);
     model.toggleCellShaded(0,3);
     model.toggleCellShaded(1,0);
@@ -46,24 +47,28 @@ public class Main {
     model.toggleCellShaded(3,2);
     model.toggleCellShaded(4,2);
     model.toggleCellShaded(4,4);
-    */
+
 
     //System.out.println("Solved?: " + model.isSolved());
 
+    print(model);
 
-    for (int i = 0; i < model.getWidth(); i++){
-      for (int j = 0; j < model.getHeight(); j++){
-        if (model.isShaded(i,j)){
-          System.out.print("X");
-        } else if (model.isEliminated(i,j)){
-          System.out.print("*");
-        } else if (model.isSpace(i,j)){
-          System.out.print("-");
+    //Application.launch(AppLauncher.class);
+  }
+
+  public static void print(Model model){
+    for (int r = 0; r < model.getHeight(); r++){
+      for (int c = 0; c < model.getWidth(); c++){
+        if (model.isShaded(r,c)){
+          System.out.print("X  ");
+        } else if (model.isEliminated(r,c)){
+          System.out.print("*  ");
+        } else if (model.isSpace(r,c)){
+          System.out.print("-  ");
         }
       }
       System.out.print("\n");
     }
-
-    //Application.launch(AppLauncher.class);
   }
+
 }

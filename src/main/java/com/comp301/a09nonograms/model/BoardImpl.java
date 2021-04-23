@@ -25,10 +25,16 @@ public class BoardImpl implements Board{
     }
 
     public boolean isEliminated(int row, int col) {
+        if (row >= height || row < 0 || col < 0 || col >= width){
+            throw new RuntimeException();
+        }
         return board[row][col] == 0;
     }
 
     public boolean isSpace(int row, int col) {
+        if (row >= height || row < 0 || col < 0 || col >= width){
+            throw new RuntimeException();
+        }
         return board[row][col] == 1;
     }
 
