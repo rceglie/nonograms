@@ -18,7 +18,7 @@ public class BoardImpl implements Board{
     }
 
     public boolean isShaded(int row, int col) {
-        System.out.println("Row: " + row + ", Col: " + col);
+        System.out.println("[" + row + ", " + col + "]");
         if (row >= height || row < 0 || col < 0 || col >= width){
             throw new RuntimeException();
         }
