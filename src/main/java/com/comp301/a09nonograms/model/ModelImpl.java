@@ -45,14 +45,14 @@ public class ModelImpl implements Model{
 
         boolean solved = true;
 
-        //System.out.println("row check:");
+        System.out.println("row check:");
 
         for (int r = 0; r < clues.getHeight(); r++) {
             solved = (Arrays.equals(getClueR(r), clues.getRowClues(r))) & solved;
 
-            //System.out.print(r + ": Actual: " + Arrays.toString(getClueR(r)));
-            //System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(r)));
-            //System.out.print(", Result: " + solved + "\n");
+            System.out.print(r + ": Actual: " + Arrays.toString(getClueR(r)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getRowClues(r)));
+            System.out.print(", Result: " + solved + "\n");
         }
 
         //System.out.println("col check:");
@@ -60,9 +60,9 @@ public class ModelImpl implements Model{
         for (int c = 0; c < clues.getWidth(); c++) {
             solved = (Arrays.equals(getClueC(c), clues.getColClues(c))) & solved;
 
-            //System.out.print(c + ": Actual: " + Arrays.toString(getClueC(c)));
-            //System.out.print(", Answer: " + Arrays.toString(clues.getColClues(c)));
-            //System.out.print(", Result: " + solved + "\n");
+            System.out.print(c + ": Actual: " + Arrays.toString(getClueC(c)));
+            System.out.print(", Answer: " + Arrays.toString(clues.getColClues(c)));
+            System.out.print(", Result: " + solved + "\n");
         }
 
         return solved;
