@@ -10,9 +10,9 @@ public class BoardImpl implements Board{
         this.width = width;
         this.height = height;
         board = new int[height][width];
-        for (int i = 0; i < width; i++){
-            for (int j = 0; j < height; j++){
-                board[i][j] = 1;
+        for (int r = 0; r < height; r++){
+            for (int c = 0; c < height; c++){
+                board[r][c] = 1;
             }
         }
     }

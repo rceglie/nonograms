@@ -8,8 +8,8 @@ public class CluesImpl implements Clues{
     private int[][] colClues;
 
     public CluesImpl(int[][] rowClues, int[][] colClues){
-        width = colClues.length;
         height = rowClues.length;
+        width = colClues.length;
         this.rowClues = rowClues;
         this.colClues = colClues;
     }
