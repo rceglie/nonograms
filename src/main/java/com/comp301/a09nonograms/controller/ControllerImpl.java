@@ -27,8 +27,18 @@ public class ControllerImpl implements Controller {
   }
 
   public boolean isSolved() {
-    if (model.isSolved()) {
-      message = "get rekt scrub";
+    if (model.isSolved()
+        && !message.equals("All puzzles have been completed. Reset to continue.")
+        && !message.contains("There is no")) {
+      if (model.getSolvedPuzzles().size() == 1) {
+        message = "You have solved 1 puzzle out of " + getPuzzleCount();
+      } else {
+        message =
+            "You have solved "
+                + model.getSolvedPuzzles().size()
+                + " puzzles out of "
+                + getPuzzleCount();
+      }
     }
     return model.isSolved();
   }
@@ -73,11 +83,19 @@ public class ControllerImpl implements Controller {
     // TODO
     if (getPuzzleCount() == model.getSolvedPuzzles().size()) {
       setMessage("All puzzles have been completed. Reset to continue.");
+    } else if (getPuzzleCount() == 1 + model.getSolvedPuzzles().size()) {
+      Random r = new Random();
+      int rand = r.nextInt(getPuzzleCount());
+      while (model.getSolvedPuzzles().contains(rand)) {
+        rand = r.nextInt(getPuzzleCount());
+      }
+      model.setPuzzleIndex(rand);
+      setMessage("");
     } else {
       Random r = new Random();
-      int rand = r.nextInt(5);
+      int rand = r.nextInt(getPuzzleCount());
       while (model.getSolvedPuzzles().contains(rand) || rand == model.getPuzzleIndex()) {
-        rand = r.nextInt(5);
+        rand = r.nextInt(getPuzzleCount());
       }
       model.setPuzzleIndex(rand);
       setMessage("");

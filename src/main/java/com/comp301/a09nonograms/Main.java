@@ -15,11 +15,11 @@ public class Main {
 
     Model model = new ModelImpl(PuzzleLibrary.create());
 
-    //fill(model);
+    // fill(model);
 
-    System.out.println("Solved?: " + model.isSolved());
+    // System.out.println("Solved?: " + model.isSolved());
 
-    //print(model);
+    // print(model);
 
     controller = new ControllerImpl(model);
 

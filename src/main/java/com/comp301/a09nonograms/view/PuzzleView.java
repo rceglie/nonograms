@@ -35,13 +35,15 @@ public class PuzzleView implements FXComponent {
       for (int c = 0; c < width; c++) {
         Button btn;
         if (controller.isEliminated(r, c)) {
-          btn = new Button("*");
-        } else if (controller.isShaded(r, c)) {
           btn = new Button("X");
+        } else if (controller.isShaded(r, c)) {
+          btn = new Button(" ");
+          btn.getStyleClass().add("shaded");
+          // btn.getStyleClass().set(0,"shaded");
         } else {
           btn = new Button("  ");
+          btn.getStyleClass().add("gridButtons");
         }
-        btn.getStyleClass().add("gridButtons");
 
         gp.add(btn, c + 1, r + 1, 1, 1);
 
@@ -52,10 +54,10 @@ public class PuzzleView implements FXComponent {
               controller.setMessage("");
 
               if (event.getButton() == MouseButton.PRIMARY) {
-                System.out.println("Left click");
+                // System.out.println("Left click");
                 controller.toggleShaded(finalR, finalC);
               } else if (event.getButton() == MouseButton.SECONDARY) {
-                System.out.println("Right click");
+                // System.out.println("Right click");
                 controller.toggleEliminated(finalR, finalC);
               }
 

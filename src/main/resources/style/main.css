@@ -4,6 +4,15 @@
 
 }
 
+.shaded{
+    -fx-pref-width: 25px;
+        -fx-pref-height: 25px;
+        -fx-background-color:
+                #A0A0A0
+}
+
+
+
 .win{
     -fx-font-size: 20pt;
 }

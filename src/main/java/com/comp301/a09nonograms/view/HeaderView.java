@@ -66,8 +66,8 @@ public class HeaderView implements FXComponent {
     btn1.setOnAction(
         (event) -> {
           controller.prevPuzzle();
-          System.out.println("Previous Puzzle Button Press");
-          System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
+          // System.out.println("Previous Puzzle Button Press");
+          // System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
           AppLauncher.refresh();
         });
 
@@ -82,8 +82,8 @@ public class HeaderView implements FXComponent {
     btn2.setOnAction(
         (event) -> {
           controller.randPuzzle();
-          System.out.println("Random Puzzle Button Press");
-          System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
+          // System.out.println("Random Puzzle Button Press");
+          // System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
           AppLauncher.refresh();
         });
 
@@ -98,8 +98,8 @@ public class HeaderView implements FXComponent {
     btn3.setOnAction(
         (event) -> {
           controller.nextPuzzle();
-          System.out.println("Next Puzzle Button Press");
-          System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
+          // System.out.println("Next Puzzle Button Press");
+          // System.out.println("Current Puzzle:" + controller.getPuzzleIndex());
           AppLauncher.refresh();
         });
 
@@ -118,7 +118,7 @@ public class HeaderView implements FXComponent {
     btn4.setOnAction(
         (event) -> {
           controller.clearBoard();
-          System.out.println("Reset Puzzle button press");
+          // System.out.println("Reset Puzzle button press");
           AppLauncher.refresh();
         });
 
@@ -133,8 +133,8 @@ public class HeaderView implements FXComponent {
     btn5.setOnAction(
         (event) -> {
           controller.clearAll();
-          controller.setMessage("");
-          System.out.println("Reset All button press");
+          controller.setMessage("Cleared all puzzles");
+          // System.out.println("Reset All button press");
           AppLauncher.refresh();
         });
 
