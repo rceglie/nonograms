@@ -26,7 +26,7 @@ public class BoardImpl implements Board {
 
   public boolean isEliminated(int row, int col) {
     if (row >= height || row < 0 || col < 0 || col >= width) {
-      System.out.println(row + " " + col);
+      // System.out.println(row + " " + col);
       throw new RuntimeException();
     }
     return board[row][col] == 0;
