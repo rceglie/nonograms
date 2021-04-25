@@ -1,12 +1,16 @@
 package com.comp301.a09nonograms;
 
+import com.comp301.a09nonograms.controller.*;
 import com.comp301.a09nonograms.model.*;
-import com.comp301.a09nonograms.view.AppLauncher;
+import com.comp301.a09nonograms.view.*;
 import javafx.application.Application;
 
 import java.util.*;
 
 public class Main {
+
+  private static Controller controller;
+
   public static void main(String[] args) {
 
     int[][] rowClues =
@@ -39,7 +43,14 @@ public class Main {
 
     print(model);
 
+    controller = new ControllerImpl(model);
+
+
     Application.launch(AppLauncher.class);
+  }
+
+  public static Controller getController(){
+    return controller;
   }
 
   public static void print(Model model) {

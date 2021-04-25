@@ -1,0 +1,16 @@
+.gridButtons{
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+}
+
+.win{
+    -fx-font-size: 20pt;
+}
+
+.message{
+    -fx-font-size: 14pt;
+}
+
+.clues{
+    -fx-font-size: 12pt;
+}

@@ -38,4 +38,8 @@ public interface Controller {
 
   /** Getter method for the total number of puzzles in the puzzle library */
   int getPuzzleCount();
+
+  String getMessage();
+  void setMessage(String s);
+  void clearAll();
 }

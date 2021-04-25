@@ -1,5 +1,7 @@
 package com.comp301.a09nonograms.model;
 
+import java.util.List;
+
 public interface Model extends Board, Clues {
   /** Getter method for the total number of puzzles in the puzzle list */
   int getPuzzleCount();
@@ -21,4 +23,7 @@ public interface Model extends Board, Clues {
 
   /** Returns true only if the active puzzle is solved */
   boolean isSolved();
+
+  List<Integer> getSolvedPuzzles();
+  void clearAll();
 }
