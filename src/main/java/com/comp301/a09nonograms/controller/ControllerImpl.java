@@ -14,11 +14,11 @@ public class ControllerImpl implements Controller {
     message = "";
   }
 
-  public String getMessage(){
+  public String getMessage() {
     return message;
   }
 
-  public void setMessage(String s){
+  public void setMessage(String s) {
     message = s;
   }
 
@@ -27,7 +27,7 @@ public class ControllerImpl implements Controller {
   }
 
   public boolean isSolved() {
-    if(model.isSolved()){
+    if (model.isSolved()) {
       message = "get rekt scrub";
     }
     return model.isSolved();
@@ -51,7 +51,7 @@ public class ControllerImpl implements Controller {
 
   public void nextPuzzle() {
 
-    if (model.getPuzzleIndex() < model.getPuzzleCount() - 1){
+    if (model.getPuzzleIndex() < model.getPuzzleCount() - 1) {
       model.setPuzzleIndex(model.getPuzzleIndex() + 1);
       setMessage("");
     } else {
@@ -61,7 +61,7 @@ public class ControllerImpl implements Controller {
 
   public void prevPuzzle() {
 
-    if (model.getPuzzleIndex() > 0){
+    if (model.getPuzzleIndex() > 0) {
       model.setPuzzleIndex(model.getPuzzleIndex() - 1);
       setMessage("");
     } else {
@@ -81,14 +81,14 @@ public class ControllerImpl implements Controller {
       }
       model.setPuzzleIndex(rand);
     }
-    }
+  }
 
   public void clearBoard() {
     setMessage("Cleared Puzzle #" + (getPuzzleIndex() + 1));
     model.clear();
   }
 
-  public void clearAll(){
+  public void clearAll() {
     setMessage("Cleared All Puzzles");
     model.clearAll();
   }

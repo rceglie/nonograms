@@ -31,7 +31,6 @@ public class AppLauncher extends Application {
     pane.setCenter(pv.render());
     pane.setBottom(bv.render());
 
-
     // Scene setting
 
     Scene scene = new Scene(pane, 500, 675);
@@ -41,11 +40,9 @@ public class AppLauncher extends Application {
     stage.show();
   }
 
-  public static void refresh(){
+  public static void refresh() {
     pane.setTop(hv.render());
     pane.setCenter(pv.render());
     pane.setBottom(bv.render());
   }
-
-
 }

@@ -45,11 +45,10 @@ public class Main {
 
     controller = new ControllerImpl(model);
 
-
     Application.launch(AppLauncher.class);
   }
 
-  public static Controller getController(){
+  public static Controller getController() {
     return controller;
   }
 

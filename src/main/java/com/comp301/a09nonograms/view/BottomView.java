@@ -9,14 +9,14 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class BottomView implements FXComponent{
+public class BottomView implements FXComponent {
 
-    private Controller controller;
-    private static Label message;
+  private Controller controller;
+  private static Label message;
 
-    public BottomView(Controller c){
-        controller = c;
-    }
+  public BottomView(Controller c) {
+    controller = c;
+  }
 
   public Parent render() {
 
@@ -51,7 +51,6 @@ public class BottomView implements FXComponent{
     hbox2.setAlignment(Pos.CENTER);
     vbox.getChildren().add(hbox2);
 
-
     vbox.getChildren().add(new Label(""));
     vbox.getChildren().add(new Label(""));
     vbox.getChildren().add(new Label(""));
@@ -60,7 +59,5 @@ public class BottomView implements FXComponent{
     vbox.setAlignment(Pos.CENTER);
 
     return pane;
-
-    }
-
+  }
 }

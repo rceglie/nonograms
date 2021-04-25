@@ -1,4 +1,5 @@
 package com.comp301.a09nonograms.model;
+
 import com.comp301.a09nonograms.view.*;
 
 import com.comp301.a09nonograms.PuzzleLibrary;
@@ -21,12 +22,11 @@ public class ModelImpl implements Model {
     observers = new ArrayList<>();
     solvedPuzzles = new ArrayList<>();
     boards = new Board[clues.size()];
-    for(int i = 0; i < boards.length; i++){
+    for (int i = 0; i < boards.length; i++) {
       boards[i] = new BoardImpl(puzzles.get(i).getWidth(), puzzles.get(i).getHeight());
       System.out.println(i);
     }
     board = boards[activePuzzle];
-
   }
 
   public Clues getClues() {
@@ -83,7 +83,7 @@ public class ModelImpl implements Model {
 
     System.out.println("FINAL RESULT: " + solved);
 
-    if (solved && !solvedPuzzles.contains(activePuzzle)){
+    if (solved && !solvedPuzzles.contains(activePuzzle)) {
       solvedPuzzles.add(activePuzzle);
     }
 
@@ -188,7 +188,7 @@ public class ModelImpl implements Model {
     }
   }
 
-  public List<Integer> getSolvedPuzzles(){
+  public List<Integer> getSolvedPuzzles() {
     return solvedPuzzles;
   }
 
@@ -229,9 +229,9 @@ public class ModelImpl implements Model {
     note();
   }
 
-  public void clearAll(){
+  public void clearAll() {
     int current = activePuzzle;
-    for (int i = 0; i < boards.length; i++){
+    for (int i = 0; i < boards.length; i++) {
       setPuzzleIndex(i);
       clear();
     }

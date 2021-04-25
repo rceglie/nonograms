@@ -25,5 +25,6 @@ public interface Model extends Board, Clues {
   boolean isSolved();
 
   List<Integer> getSolvedPuzzles();
+
   void clearAll();
 }

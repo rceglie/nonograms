@@ -26,7 +26,7 @@ public class BoardImpl implements Board {
 
   public boolean isEliminated(int row, int col) {
     if (row >= height || row < 0 || col < 0 || col >= width) {
-      System.out.println(row + " "+ col);
+      System.out.println(row + " " + col);
       throw new RuntimeException();
     }
     return board[row][col] == 0;
@@ -41,7 +41,7 @@ public class BoardImpl implements Board {
 
   public void toggleCellShaded(int row, int col) {
     // System.out.println("Shading: [" + row + ", " + col + "]");
-    if (board[row][col] == 2){
+    if (board[row][col] == 2) {
       board[row][col] = 1;
     } else {
       board[row][col] = 2;
@@ -50,7 +50,7 @@ public class BoardImpl implements Board {
 
   public void toggleCellEliminated(int row, int col) {
     // System.out.println("Eliminating: [" + row + ", " + col + "]");
-    if (board[row][col] == 0){
+    if (board[row][col] == 0) {
       board[row][col] = 1;
     } else {
       board[row][col] = 0;

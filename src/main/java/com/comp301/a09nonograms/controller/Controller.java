@@ -40,6 +40,8 @@ public interface Controller {
   int getPuzzleCount();
 
   String getMessage();
+
   void setMessage(String s);
+
   void clearAll();
 }
