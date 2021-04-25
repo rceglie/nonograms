@@ -13,35 +13,13 @@ public class Main {
 
   public static void main(String[] args) {
 
-    int[][] rowClues =
-        new int[][] {
-          new int[] {0, 2},
-          new int[] {1, 2},
-          new int[] {0, 3},
-          new int[] {0, 3},
-          new int[] {1, 1},
-        };
-
-    int[][] colClues =
-        new int[][] {
-          new int[] {1, 1},
-          new int[] {0, 1},
-          new int[] {0, 3},
-          new int[] {0, 3},
-          new int[] {3, 1},
-        };
-
-    List<Clues> tester = new ArrayList<>();
-    tester.add(new CluesImpl(rowClues, colClues));
-
-    // Model model2 = new ModelImpl(tester);
     Model model = new ModelImpl(PuzzleLibrary.create());
 
     //fill(model);
 
     System.out.println("Solved?: " + model.isSolved());
 
-    print(model);
+    //print(model);
 
     controller = new ControllerImpl(model);
 

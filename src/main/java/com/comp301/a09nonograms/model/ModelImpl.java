@@ -116,7 +116,7 @@ public class ModelImpl implements Model {
 
     int L = ret.length;
     int[] toReturn = new int[L];
-    if (groups == L) {
+    if (groups > L) {
       for (int i = 0; i < L; i++) {
         toReturn[L - i - 1] = ret[i];
       }
@@ -165,7 +165,7 @@ public class ModelImpl implements Model {
 
     int L = ret.length;
     int[] toReturn = new int[L];
-    if (groups == L) {
+    if (groups > L) {
       for (int i = 0; i < L; i++) {
         toReturn[L - i - 1] = ret[i];
       }

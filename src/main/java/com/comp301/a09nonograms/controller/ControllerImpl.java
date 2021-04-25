@@ -80,6 +80,7 @@ public class ControllerImpl implements Controller {
         rand = r.nextInt(5);
       }
       model.setPuzzleIndex(rand);
+      setMessage("");
     }
   }
 
