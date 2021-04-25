@@ -37,7 +37,7 @@ public class Main {
     // Model model2 = new ModelImpl(tester);
     Model model = new ModelImpl(PuzzleLibrary.create());
 
-    fill(model);
+    //fill(model);
 
     System.out.println("Solved?: " + model.isSolved());
 
