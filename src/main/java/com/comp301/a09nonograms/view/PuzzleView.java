@@ -36,6 +36,7 @@ public class PuzzleView implements FXComponent {
         Button btn;
         if (controller.isEliminated(r, c)) {
           btn = new Button("X");
+          btn.getStyleClass().add("gridButtons");
         } else if (controller.isShaded(r, c)) {
           btn = new Button(" ");
           btn.getStyleClass().add("shaded");
@@ -76,7 +77,15 @@ public class PuzzleView implements FXComponent {
     for (int r = 0; r < height; r++) {
       HBox h = new HBox();
       for (int i = 0; i < controller.getClues().getRowCluesLength(); i++) {
-        Label test = new Label(String.valueOf(controller.getClues().getRowClues(r)[i]) + "   ");
+        int clue = controller.getClues().getRowClues(r)[i];
+        Label test;
+        if (clue != 0) {
+          test = new Label(String.valueOf(clue) + "   ");
+        } else if (i + 1 == controller.getClues().getRowCluesLength()) {
+          test = new Label("0   ");
+        } else {
+          test = new Label("     ");
+        }
         test.getStyleClass().add("clues");
         h.getChildren().add(test);
       }
@@ -87,7 +96,15 @@ public class PuzzleView implements FXComponent {
     for (int c = 0; c < width; c++) {
       VBox v = new VBox();
       for (int i = 0; i < controller.getClues().getColCluesLength(); i++) {
-        Label test = new Label(String.valueOf(controller.getClues().getColClues(c)[i]));
+        int clue = controller.getClues().getColClues(c)[i];
+        Label test;
+        if (clue != 0) {
+          test = new Label(String.valueOf(clue));
+        } else if (i + 1 == controller.getClues().getColCluesLength()) {
+          test = new Label("0");
+        } else {
+          test = new Label("");
+        }
         test.getStyleClass().add("clues");
         HBox hb = new HBox(test);
         hb.setAlignment(Pos.CENTER);
