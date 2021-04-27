@@ -33,7 +33,7 @@ public class AppLauncher extends Application {
 
     // Scene setting
 
-    Scene scene = new Scene(pane, 500, 675);
+    Scene scene = new Scene(pane, 500, 700);
     scene.getStylesheets().add("style/main.css");
     stage.setScene(scene);
 
